@@ -40,12 +40,9 @@
     .item {
       padding: 20px 0;
       border-bottom: 1px solid #ddd;
-    }
-
-    .item a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      cursor: pointer;              /* ✅ 클릭 가능 표시 */
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .title {
@@ -62,7 +59,7 @@
       color: #666;
     }
 
-    .item a:active {
+    .item:active {                  /* ✅ 눌림 효과 */
       opacity: 0.7;
     }
 
@@ -83,35 +80,27 @@
     <hr>
 
     <!-- 1 -->
-    <div class="item">
-      <a href="https://drive.google.com" target="_self">
-        <div class="title">🎧 책음원 듣기</div>
-        <div class="hint">터치하여 바로 이동</div>
-      </a>
+    <div class="item" onclick="go('https://drive.google.com')">
+      <div class="title">🎧 책음원 듣기</div>
+      <div class="hint">터치하여 바로 이동</div>
     </div>
 
     <!-- 2 -->
-    <div class="item">
-      <a href="https://steady-starburst-3dbf7b.netlify.app" target="_self">
-        <div class="title">🌐 단어학습앱</div>
-        <div class="hint">터치하여 바로 이동</div>
-      </a>
+    <div class="item" onclick="go('https://steady-starburst-3dbf7b.netlify.app')">
+      <div class="title">🌐 단어학습앱</div>
+      <div class="hint">터치하여 바로 이동</div>
     </div>
 
     <!-- 3 -->
-    <div class="item">
-      <a href="https://eneolearning.co.kr/home" target="_self">
-        <div class="title">🌐 책퀴즈 풀기</div>
-        <div class="hint">터치하여 바로 이동</div>
-      </a>
+    <div class="item" onclick="go('https://eneolearning.co.kr/home')">
+      <div class="title">🌐 책퀴즈 풀기</div>
+      <div class="hint">터치하여 바로 이동</div>
     </div>
 
     <!-- 4 -->
-    <div class="item">
-      <a href="https://e-future.co.kr/books/list.do#sch_catkey=101&sch_serieskey=149" target="_self">
-        <div class="title">🌐 스마트파닉스리더스 듣기</div>
-        <div class="hint">터치하여 바로 이동</div>
-      </a>
+    <div class="item" onclick="go('https://e-future.co.kr/books/list.do#sch_catkey=101&sch_serieskey=149')">
+      <div class="title">🌐 스마트파닉스리더스 듣기</div>
+      <div class="hint">터치하여 바로 이동</div>
     </div>
 
     <div class="note">
@@ -119,6 +108,17 @@
     </div>
 
   </div>
+
+  <script>
+    function go(url) {
+      try {
+        window.location.href = url;     // ✅ Fully에서 가장 잘 먹는 방식
+      } catch (e) {
+        // 혹시 모를 예외 대비
+        window.location.assign(url);
+      }
+    }
+  </script>
 </body>
 </html>
 
