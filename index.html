@@ -40,7 +40,7 @@
     .item {
       padding: 20px 0;
       border-bottom: 1px solid #ddd;
-      cursor: pointer;              /* ✅ 클릭 가능 표시 */
+      cursor: pointer;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
     }
@@ -59,7 +59,7 @@
       color: #666;
     }
 
-    .item:active {                  /* ✅ 눌림 효과 */
+    .item:active {
       opacity: 0.7;
     }
 
@@ -103,6 +103,12 @@
       <div class="hint">터치하여 바로 이동</div>
     </div>
 
+    <!-- NEW : 파닉스책 음원 듣기 -->
+    <div class="item" onclick="go('https://mp3.ebricks.co.kr/')">
+      <div class="title">🔤 파닉스책 음원 듣기</div>
+      <div class="hint">터치하여 바로 이동</div>
+    </div>
+
     <div class="note">
       ※ 원하는 항목을 눌러 사용하세요.
     </div>
@@ -112,12 +118,12 @@
   <script>
     function go(url) {
       try {
-        window.location.href = url;     // ✅ Fully에서 가장 잘 먹는 방식
+        window.location.href = url;
       } catch (e) {
-        // 혹시 모를 예외 대비
         window.location.assign(url);
       }
     }
   </script>
 </body>
 </html>
+
